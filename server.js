@@ -3,8 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/fullstack-jeopardy
+
+// Mongoose Connection
+mongoose.connect(process.env.MONGODB_URI);
 
 const connection = mongoose.connection;
 connection.on('connected', () => {
